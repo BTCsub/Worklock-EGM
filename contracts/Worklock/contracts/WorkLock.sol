@@ -1,14 +1,13 @@
 pragma solidity ^0.6.5;
 
 
-import "zeppelin/math/SafeMath.sol";
-import "zeppelin/token/ERC20/SafeERC20.sol";
-import "zeppelin/utils/Address.sol";
-import "zeppelin/ownership/Ownable.sol";
-import "contracts/NuCypherToken.sol";
-import "contracts/StakingEscrow.sol";
-import "contracts/lib/AdditionalMath.sol";
-
+import "../zeppelin/math/SafeMath.sol";
+import "../zeppelin/token/ERC20/SafeERC20.sol";
+import "../zeppelin/utils/Address.sol";
+import "../zeppelin/ownership/Ownable.sol";
+import "./NuCypherToken.sol";
+import "./StakingEscrow.sol";
+import "./lib/AdditionalMath.sol";
 
 /**
 * @notice The WorkLock distribution contract

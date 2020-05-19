@@ -1,11 +1,11 @@
 pragma solidity ^0.6.5;
 
 
-import "contracts/NuCypherToken.sol";
-import "zeppelin/math/Math.sol";
-import "contracts/proxy/Upgradeable.sol";
-import "contracts/lib/AdditionalMath.sol";
-import "zeppelin/token/ERC20/SafeERC20.sol";
+import "./NuCypherToken.sol";
+import "../zeppelin/math/Math.sol";
+import "./proxy/Upgradeable.sol";
+import "./lib/AdditionalMath.sol";
+import "../zeppelin/token/ERC20/SafeERC20.sol";
 
 
 /**

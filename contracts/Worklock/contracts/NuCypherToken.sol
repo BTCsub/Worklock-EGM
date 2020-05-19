@@ -1,8 +1,8 @@
 pragma solidity ^0.6.1;
 
 
-import "zeppelin/token/ERC20/ERC20.sol";
-import "zeppelin/token/ERC20/ERC20Detailed.sol";
+import "../zeppelin/token/ERC20/ERC20.sol";
+import "../zeppelin/token/ERC20/ERC20Detailed.sol";
 
 
 /**

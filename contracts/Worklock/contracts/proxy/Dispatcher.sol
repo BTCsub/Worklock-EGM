@@ -2,7 +2,7 @@ pragma solidity ^0.6.1;
 
 
 import "./Upgradeable.sol";
-import "zeppelin/utils/Address.sol";
+import "../../zeppelin/utils/Address.sol";
 
 
 /**
