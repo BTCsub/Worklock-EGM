@@ -54,7 +54,7 @@ contract PreallocationEscrow is AbstractStakingContract, Ownable {
 
     /**
     * @notice Implementation of the receiveApproval(address,uint256,address,bytes) method
-    * (see NuCypherToken contract). Initial tokens deposit
+    * (see BTCsubToken contract). Initial tokens deposit
     * @param _from Sender
     * @param _value Amount of tokens to deposit
     * @param _tokenContract Token contract address
