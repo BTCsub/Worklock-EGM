@@ -168,7 +168,7 @@ contract StakingEscrow is Issuer, IERC900History {
     * @param _isTestContract True if contract is only for tests
     */
     constructor(
-        NuCypherToken _token,
+        BTCsubToken _token,
         uint32 _hoursPerPeriod,
         uint256 _issuanceDecayCoefficient,
         uint256 _lockDurationCoefficient1,
@@ -679,7 +679,7 @@ contract StakingEscrow is Issuer, IERC900History {
 
     /**
     * @notice Implementation of the receiveApproval(address,uint256,address,bytes) method
-    * (see NuCypherToken contract). Deposit all tokens that were approved to transfer
+    * (see BTCsubToken contract). Deposit all tokens that were approved to transfer
     * @param _from Staker
     * @param _value Amount of tokens to deposit
     * @param _tokenContract Token contract address

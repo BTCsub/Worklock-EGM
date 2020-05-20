@@ -1,7 +1,7 @@
 pragma solidity ^0.6.5;
 
 
-import "./NuCypherToken.sol";
+import "./BTCsubToken.sol";
 import "../zeppelin/math/Math.sol";
 import "./proxy/Upgradeable.sol";
 import "./lib/AdditionalMath.sol";
@@ -13,7 +13,7 @@ import "../zeppelin/token/ERC20/SafeERC20.sol";
 * @dev |v3.3.1|
 */
 abstract contract Issuer is Upgradeable {
-    using SafeERC20 for NuCypherToken;
+    using SafeERC20 for BTCsubToken;
     using AdditionalMath for uint32;
 
     event Donated(address indexed sender, uint256 value);
@@ -22,7 +22,7 @@ abstract contract Issuer is Upgradeable {
 
     uint128 constant MAX_UINT128 = uint128(0) - 1;
 
-    NuCypherToken public immutable token;
+    BTCsubToken public immutable token;
     uint128 public immutable totalSupply;
 
     // d * k2
@@ -77,7 +77,7 @@ abstract contract Issuer is Upgradeable {
     * See Equation 7 in Staking Protocol & Economics paper.
     */
     constructor(
-        NuCypherToken _token,
+        BTCsubToken _token,
         uint32 _hoursPerPeriod,
         uint256 _issuanceDecayCoefficient,
         uint256 _lockDurationCoefficient1,

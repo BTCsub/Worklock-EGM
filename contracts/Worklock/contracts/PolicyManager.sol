@@ -8,7 +8,7 @@ import "../zeppelin/utils/Address.sol";
 import "./lib/AdditionalMath.sol";
 import "./lib/SignatureVerifier.sol";
 import "./StakingEscrow.sol";
-import "./NuCypherToken.sol";
+import "./BTCsubToken.sol";
 import "./proxy/Upgradeable.sol";
 
 
@@ -17,7 +17,7 @@ import "./proxy/Upgradeable.sol";
 * @dev |v6.1.1|
 */
 contract PolicyManager is Upgradeable {
-    using SafeERC20 for NuCypherToken;
+    using SafeERC20 for BTCsubToken;
     using SafeMath for uint256;
     using AdditionalMath for uint256;
     using AdditionalMath for int256;

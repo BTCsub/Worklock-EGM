@@ -2,7 +2,7 @@ pragma solidity ^0.6.5;
 
 
 import "./AbstractStakingContract.sol";
-import "../NuCypherToken.sol";
+import "../BTCsubToken.sol";
 import "../StakingEscrow.sol";
 import "../PolicyManager.sol";
 import "../WorkLock.sol";
@@ -14,7 +14,7 @@ import "../WorkLock.sol";
 contract BaseStakingInterface {
 
     address public immutable stakingInterfaceAddress;
-    NuCypherToken public immutable token;
+    BTCsubToken public immutable token;
     StakingEscrow public immutable escrow;
     PolicyManager public immutable policyManager;
     WorkLock public immutable workLock;
@@ -27,7 +27,7 @@ contract BaseStakingInterface {
     * @param _workLock WorkLock contract
     */
     constructor(
-        NuCypherToken _token,
+        BTCsubToken _token,
         StakingEscrow _escrow,
         PolicyManager _policyManager,
         WorkLock _workLock
@@ -100,7 +100,7 @@ contract StakingInterface is BaseStakingInterface {
     * @param _workLock WorkLock contract
     */
     constructor(
-        NuCypherToken _token,
+        BTCsubToken _token,
         StakingEscrow _escrow,
         PolicyManager _policyManager,
         WorkLock _workLock

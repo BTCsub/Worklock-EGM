@@ -41,17 +41,17 @@ contract StakingInterfaceRouter is Ownable {
 abstract contract AbstractStakingContract {
     using Address for address;
     using Address for address payable;
-    using SafeERC20 for NuCypherToken;
+    using SafeERC20 for BTCsubToken;
 
     StakingInterfaceRouter public immutable router;
-    NuCypherToken public immutable token;
+    BTCsubToken public immutable token;
 
     /**
     * @param _router Interface router contract address
     */
     constructor(StakingInterfaceRouter _router) public {
         router = _router;
-        NuCypherToken localToken = _router.target().token();
+        BTCsubToken localToken = _router.target().token();
         require(address(localToken) != address(0));
         token = localToken;
     }

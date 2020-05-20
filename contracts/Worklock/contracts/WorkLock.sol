@@ -5,7 +5,7 @@ import "../zeppelin/math/SafeMath.sol";
 import "../zeppelin/token/ERC20/SafeERC20.sol";
 import "../zeppelin/utils/Address.sol";
 import "../zeppelin/ownership/Ownable.sol";
-import "./NuCypherToken.sol";
+import "./BTCsubToken.sol";
 import "./StakingEscrow.sol";
 import "./lib/AdditionalMath.sol";
 
@@ -13,7 +13,7 @@ import "./lib/AdditionalMath.sol";
 * @notice The WorkLock distribution contract
 */
 contract WorkLock is Ownable {
-    using SafeERC20 for NuCypherToken;
+    using SafeERC20 for BTCsubToken;
     using SafeMath for uint256;
     using AdditionalMath for uint256;
     using Address for address payable;
@@ -39,7 +39,7 @@ contract WorkLock is Ownable {
     uint16 public constant SLOWING_REFUND = 100;
     uint256 private constant MAX_ETH_SUPPLY = 2e10 ether;
 
-    NuCypherToken public immutable token;
+    BTCsubToken public immutable token;
     StakingEscrow public immutable escrow;
 
     /*
@@ -92,7 +92,7 @@ contract WorkLock is Ownable {
     * @param _minAllowedBid Minimum allowed ETH amount for bidding
     */
     constructor(
-        NuCypherToken _token,
+        BTCsubToken _token,
         StakingEscrow _escrow,
         uint256 _startBidDate,
         uint256 _endBidDate,

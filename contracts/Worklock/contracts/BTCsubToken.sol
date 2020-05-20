@@ -10,7 +10,7 @@ import "../zeppelin/token/ERC20/ERC20Detailed.sol";
 * @notice ERC20 token
 * @dev Optional approveAndCall() functionality to notify a contract if an approve() has occurred.
 */
-contract NuCypherToken is ERC20, ERC20Detailed('NuCypher', 'NU', 18) {
+contract BTCsubToken is ERC20, ERC20Detailed('BTCsub', 'BSU', 18) {
 
     /**
     * @notice Set amount of tokens
