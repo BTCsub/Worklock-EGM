@@ -1,3 +1,6 @@
+// The official contract is https://github.com/BTCsub/BTCsubToken/blob/master/contracts/BTCsubToken.sol
+// This file is the copy to be used for worklock
+
 pragma solidity ^0.6.1;
 
 
