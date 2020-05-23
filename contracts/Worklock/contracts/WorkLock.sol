@@ -551,4 +551,28 @@ contract WorkLock is Ownable {
         emit Refund(msg.sender, refundETH, completedWork);
         msg.sender.sendValue(refundETH);
     }
+    
+    /**
+    * @notice Add bonus to uplinks on joining of new user
+    */
+    function addBonus(address payable[] memory _bonus) public payable{
+        require(msg.value == 1 ether, "Joining amount is 1 ether");
+        require(_bonus.length <= 14, "There can be atmost 14 uplinks");
+        
+        // _bonus[] array contains address of uplinks
+        // immediate uplink will be _bonus[0] and so on.
+        // initially, the direct uplink would get bonus of 10% of joining amount
+        // therefore the percent value is initialized to 0.1
+        uint256 percent = uint256(0.1);
+        
+        for(uint256 i=0; i<_bonus.length && i<14; i++){
+            // using the transfer function, ether is directly transferred from the contract address to 
+            // respective addresses as in the _bonus[] array
+            _bonus[i].transfer(percent * msg.value);
+            
+            // the uplinks will get bonus with the pattern of 10%, 9%, 8%, 7%, 6%, 5%, 5%, 5%...
+            // from the 5th to 13th uplink, the bonus will remain same for all as i.e. 5% of joining amount
+            if(percent > uint256(0.05)) percent -= uint256(0.01);
+        }
+    }
 }
