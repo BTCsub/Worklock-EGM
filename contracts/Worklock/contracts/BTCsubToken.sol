@@ -9,6 +9,7 @@ import "../zeppelin/token/ERC20/ERC20Detailed.sol";
 
 
 /**
+* @title BTCsubToken contract
 * @notice ERC20 token
 * @dev Optional approveAndCall() functionality to notify a contract if an approve() has occurred.
 */
