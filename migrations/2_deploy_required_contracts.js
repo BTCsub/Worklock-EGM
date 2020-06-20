@@ -35,7 +35,7 @@ module.exports = async function(deployer) {
     * uint16 _minWorkerPeriods = 20,
     * bool _isTestContract = true
     **/
-	await deployer.deploy(StakingEscrow, BTCsubToken.address, 1, 2425, 365, 730, 365, 50000, 200, 20, 500, 2000, 20, true);
+	await deployer.deploy(StakingEscrow, BTCsubToken.address, 10, 2425, 365, 730, 365, 50000, 200, 20, 500, 2000, 20, true);
 
 	/**
 	* @notice deploying the WorkLock contract
