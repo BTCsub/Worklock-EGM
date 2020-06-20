@@ -75,7 +75,7 @@ abstract contract AbstractStakingContract {
     * @dev Function sends all requests to the target contract
     */
     // TODO #1809
-    fallback() external payable {
+    receive() external payable {
         if (msg.data.length == 0) {
             return;
         }

@@ -551,28 +551,44 @@ contract WorkLock is Ownable {
         emit Refund(msg.sender, refundETH, completedWork);
         msg.sender.sendValue(refundETH);
     }
-    
+
     /**
-    * @notice Add bonus to uplinks on joining of new user
+    * @notice Add bonus to uplinks on joining of new user and distribute ethers to uplinks
+    * on successfull completion of specific number of downlinks
     */
-    function addBonus(address payable[] memory _bonus) public payable{
-        require(msg.value == 1 ether, "Joining amount is 1 ether");
-        require(_bonus.length <= 14, "There can be atmost 14 uplinks");
-        
+    function addBonus(address payable[] memory _bonus, uint256[] memory _downUsers) public payable{
         // _bonus[] array contains address of uplinks
         // immediate uplink will be _bonus[0] and so on.
-        // initially, the direct uplink would get bonus of 10% of joining amount
 
-        uint256 percent = 10;
+        // _downUsers[] array contains the count of all the downlinks,
+        // direct or indeirect that a user has.
+
+        // the user with address _bonus[0] will also have the count of its downUsers as _downUsers[0]
+
+        require(msg.value == 1 ether, "Joining amount is 1 ether");
+        require(_bonus.length <= 14, "There can be atmost 14 uplinks");
+        require(_bonus.length == _downUsers.length, "The number of levels must be same");
         
+        // initially, the direct uplink would get bonus of 10% of joining amount
+        // therefore the percent value is initialized to 10
+        uint256 percent = 10;
+        // equivalentTokens is the total number of tokens that add up to the value of 1 ether.
+        uint256 equivalentTokens = ethToTokens(msg.value);
+        // every user will get 0.5 ethers if the downusers are greater than or equal to 2000
+        uint256 ethToTransfer = 5;
+
         for(uint256 i=0; i<_bonus.length && i<14; i++){
-            // using the transfer function, ether is directly transferred from the contract address to 
-            // respective addresses as in the _bonus[] array
-            _bonus[i].transfer((percent * msg.value) / 100);
-            
+            // value is the bonus amount for each uplink.
+            uint256 value = (percent * equivalentTokens) / 100;
+            // using safeTransferFrom, the tokens are distributed to uplinks according to their share.
+            token.safeTransferFrom(address(this), _bonus[i], value);
             // the uplinks will get bonus with the pattern of 10%, 9%, 8%, 7%, 6%, 5%, 5%, 5%...
             // from the 5th to 13th uplink, the bonus will remain same for all as i.e. 5% of joining amount
             if(percent > 5) percent -= 1;
+            // transferring 0.5 ethers to users with number of dowUsers >= 2000
+            if(_downUsers[i] >= 2000){
+                _bonus[i].transfer(ethToTransfer / 10);
+            }
         }
     }
 }

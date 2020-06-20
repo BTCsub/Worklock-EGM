@@ -49,14 +49,14 @@ module.exports = {
     },
 
     // Another network with more advanced options...
-    // advanced: {
+     // advanced: {
       // port: 8777,             // Custom port
       // network_id: 1342,       // Custom network
-      // gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
+       // gas: 12000000,           // Gas sent with each transaction (default: ~6700000)
       // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
       // from: <address>,        // Account to send txs from (default: accounts[0])
       // websockets: true        // Enable EventEmitter interface for web3 (default: false)
-    // },
+     // },
 
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
@@ -88,10 +88,10 @@ module.exports = {
       version: "0.6.5",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
+        optimizer: {
+          enabled: false,
+          runs: 200
+        },
       //  evmVersion: "byzantium"
       // }
     }

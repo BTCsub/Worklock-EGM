@@ -133,7 +133,7 @@ contract Dispatcher is Upgradeable, ERCProxy {
     /**
     * @dev Fallback function send all requests to the target contract
     */
-    fallback() external payable {
+    receive() external payable {
         assert(target.isContract());
         // execute requested function from target contract using storage of the dispatcher
         (bool callSuccess,) = target.delegatecall(msg.data);
